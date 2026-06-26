@@ -587,6 +587,13 @@ function Work() {
     },
     {
       no: "04",
+      title: "Kenzo Gents E-Commerce Website",
+      tag: "React.jsTypeScript, Tailwind CSS, Shadcn UI, DaisyUI, Framer Motion, WhatsApp API ",
+      blurb:
+        "A modern, feature-rich e-commerce platform specializing in premium menswear with advanced filtering, smart product recommendations, and optimized checkout experience. Integrated WhatsApp API for customer inquiries and order management.",
+    },
+    {
+      no: "05",
       title: "Mobile-First Salon Booking Platform (ongoing)",
       tag: "Frontend: Next.js 14 (App Router) + TypeScript + Tailwind CSS. // Backend: Next.js API routes + PostgreSQL + Prisma ORM ",
       blurb:
