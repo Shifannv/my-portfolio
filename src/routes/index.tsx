@@ -757,7 +757,7 @@ function Contact() {
             <Mail className="h-5 w-5 text-primary transition-transform group-hover:-translate-y-0.5" />
           </a>
           <a
-            href="tel:+919544531014"
+            href="tel:+918848545625"
             className="group flex items-center justify-between rounded-2xl border border-border bg-card p-6 hover:bg-surface"
           >
             <div>
