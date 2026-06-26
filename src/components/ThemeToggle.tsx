@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
-import { useTheme } from "@/lib/theme";
+import { useTheme } from "@/lib/theme-context";
 import { useRef } from "react";
 
 export function ThemeToggle({ className = "" }: { className?: string }) {

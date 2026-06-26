@@ -1,15 +1,6 @@
-import { createContext, useContext, useEffect, useState, useCallback, type ReactNode } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 
-type Theme = "dark" | "light";
-type Ctx = {
-  theme: Theme;
-  setTheme: (t: Theme, originX?: number, originY?: number) => void;
-  toggle: (originX?: number, originY?: number) => void;
-  durationMs: number;
-  setDurationMs: (n: number) => void;
-};
-
-const ThemeCtx = createContext<Ctx | null>(null);
+import { ThemeCtx, type Theme } from "./theme-context";
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("dark");
@@ -38,10 +29,4 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       {children}
     </ThemeCtx.Provider>
   );
-}
-
-export function useTheme() {
-  const ctx = useContext(ThemeCtx);
-  if (!ctx) throw new Error("useTheme outside ThemeProvider");
-  return ctx;
 }

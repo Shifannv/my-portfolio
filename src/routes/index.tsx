@@ -9,7 +9,7 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { ArrowUpRight, Github, Mail, MapPin, Phone, Code2, Camera, Building2 } from "lucide-react";
-import { ThemeProvider, useTheme } from "@/lib/theme";
+import { ThemeProvider } from "@/lib/theme";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 import outdoor from "@/assets/shifan-outdoor.jpeg";
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/")({
 function Intro({ onDone }: { onDone: () => void }) {
   const reduce = useReducedMotion();
   useEffect(() => {
-    const t = setTimeout(onDone, reduce ? 200 : 2400);
+    const t = setTimeout(onDone, reduce ? 200 : 3000);
     return () => clearTimeout(t);
   }, [onDone, reduce]);
 
@@ -78,7 +78,7 @@ function Intro({ onDone }: { onDone: () => void }) {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="font-mono-tight text-xs uppercase tracking-[0.4em] text-muted-foreground"
         >
-          Hey Everyone I Am From <span className="text-primary">/</span> Calicut, IN
+          Hey..I Am From <span className="text-primary">/</span> Calicut, IN
         </motion.p>
 
         <div className="mt-6 flex justify-center overflow-hidden">
@@ -104,7 +104,7 @@ function Intro({ onDone }: { onDone: () => void }) {
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 2, y: 0 }}
-          transition={{ delay: 2, duration: 1 }}
+          transition={{ delay: 1, duration: 1 }}
           className="font-mono-tight mt-3 text-xs uppercase tracking-[0.3em] text-muted-foreground"
         >
           Frontend · Realtor · Visual content Creator
@@ -163,6 +163,7 @@ function Hero() {
         <img
           src={outdoor}
           alt="Mohammad Shifan NV — portrait"
+          fetchPriority="high"
           className="h-full w-full object-cover object-[50%_15%] opacity-70"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/40 to-background" />
@@ -308,7 +309,8 @@ function About() {
                 ever done.
               </p>
               <p>
-                I edit my own video && Client video on DaVinci & Capcut, design in Figma, and ship the code myself.
+                I edit my own video && Client video on DaVinci & Capcut, design in Figma, and ship
+                the code myself.
               </p>
             </div>
 
@@ -335,6 +337,8 @@ function About() {
               <img
                 src={outdoor}
                 alt="Mohammad Shifan outdoor portrait"
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
             </motion.div>
@@ -433,6 +437,7 @@ function Timeline() {
 function Story() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const panels = [
     {
@@ -466,6 +471,15 @@ function Story() {
   ];
 
   const n = panels.length;
+  const activePanel = panels[activeIndex] ?? panels[0];
+
+  useEffect(() => {
+    const unsub = scrollYProgress.on("change", (v) => {
+      const nextIndex = Math.min(n - 1, Math.max(0, Math.floor(v * n)));
+      setActiveIndex(nextIndex);
+    });
+    return () => unsub();
+  }, [n, scrollYProgress]);
 
   return (
     <section
@@ -476,76 +490,57 @@ function Story() {
     >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <div className="mx-auto grid w-full max-w-7xl gap-10 px-6 sm:px-10 lg:grid-cols-2 lg:gap-16">
-          <div className="relative order-1 mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl border border-border bg-surface lg:order-none lg:max-w-none">
-            {panels.map((p, i) => {
-              const start = i / n;
-              const end = (i + 1) / n;
-              const mid = (start + end) / 2;
-              const clamp = (v: number) => Math.min(1, Math.max(0, v));
-              // eslint-disable-next-line react-hooks/rules-of-hooks
-              const opacity = useTransform(
-                scrollYProgress,
-                [clamp(start - 0.05), clamp(start + 0.02), clamp(end - 0.02), clamp(end + 0.05)],
-                [0, 1, 1, 0],
-              );
-              // eslint-disable-next-line react-hooks/rules-of-hooks
-              const scale = useTransform(
-                scrollYProgress,
-                [clamp(start), clamp(mid), clamp(end)],
-                [1.08, 1, 1.08],
-              );
-              return (
+          <div className="relative order-1 mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl border border-border bg-surface lg:order-none lg:max-w-none">
+            <AnimatePresence mode="wait">
+              {activePanel && (
                 <motion.img
-                  key={i}
-                  src={p.img}
-                  alt={p.alt}
-                  style={{ opacity, scale }}
+                  key={activePanel.img}
+                  src={activePanel.img}
+                  alt={activePanel.alt}
+                  loading={activeIndex === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  initial={{ opacity: 0, scale: 1.04 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.02 }}
+                  transition={{ duration: 0.35, ease: [0.2, 0.7, 0.2, 1] }}
                   className="absolute inset-0 h-full w-full object-cover"
                 />
-              );
-            })}
+              )}
+            </AnimatePresence>
             <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between px-4 py-3 text-[10px]">
               <span className="font-mono-tight rounded-full bg-background/80 px-2 py-1 uppercase tracking-widest text-foreground backdrop-blur">
-                scroll to advance
+                scroll to down see the advance
               </span>
               <span className="font-mono-tight rounded-full bg-background/80 px-2 py-1 tabular-nums text-foreground backdrop-blur">
-                <StoryIndex progress={scrollYProgress} total={n} />
+                {String(activeIndex + 1).padStart(2, "0")} / {String(n).padStart(2, "0")}
               </span>
             </div>
           </div>
 
           <div className="relative flex min-h-[60vh] items-center">
             <div className="relative w-full">
-              {panels.map((p, i) => {
-                const start = i / n;
-                const end = (i + 1) / n;
-                const clamp = (v: number) => Math.min(1, Math.max(0, v));
-                // eslint-disable-next-line react-hooks/rules-of-hooks
-                const opacity = useTransform(
-                  scrollYProgress,
-                  [clamp(start - 0.03), clamp(start + 0.04), clamp(end - 0.04), clamp(end + 0.03)],
-                  [0, 1, 1, 0],
-                );
-                // eslint-disable-next-line react-hooks/rules-of-hooks
-                const y = useTransform(scrollYProgress, [clamp(start), clamp(end)], [30, -30]);
-                return (
+              <AnimatePresence mode="wait">
+                {activePanel && (
                   <motion.div
-                    key={i}
-                    style={{ opacity, y }}
+                    key={activePanel.title}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -18 }}
+                    transition={{ duration: 0.28, ease: [0.2, 0.7, 0.2, 1] }}
                     className="absolute inset-0 flex flex-col justify-center"
                   >
                     <p className="font-mono-tight text-xs uppercase tracking-[0.3em] text-primary">
-                      {p.kicker}
+                      {activePanel.kicker}
                     </p>
                     <h3 className="font-display mt-4 text-4xl font-semibold leading-[1.05] sm:text-5xl">
-                      {p.title}
+                      {activePanel.title}
                     </h3>
                     <p className="mt-5 max-w-md text-base text-muted-foreground sm:text-lg">
-                      {p.body}
+                      {activePanel.body}
                     </p>
                   </motion.div>
-                );
-              })}
+                )}
+              </AnimatePresence>
               <div className="invisible">
                 <p className="font-mono-tight text-xs uppercase tracking-[0.3em]">x</p>
                 <h3 className="font-display mt-4 text-4xl font-semibold leading-[1.05] sm:text-5xl">
@@ -560,28 +555,6 @@ function Story() {
         </div>
       </div>
     </section>
-  );
-}
-
-function StoryIndex({
-  progress,
-  total,
-}: {
-  progress: ReturnType<typeof useScroll>["scrollYProgress"];
-  total: number;
-}) {
-  const [i, setI] = useState(1);
-  useEffect(() => {
-    const unsub = progress.on("change", (v) => {
-      const idx = Math.min(total, Math.max(1, Math.floor(v * total) + 1));
-      setI(idx);
-    });
-    return () => unsub();
-  }, [progress, total]);
-  return (
-    <span>
-      {String(i).padStart(2, "0")} / {String(total).padStart(2, "0")}
-    </span>
   );
 }
 
@@ -837,8 +810,6 @@ function ScrollProgress() {
 
 function Page() {
   const [introDone, setIntroDone] = useState(false);
-  const { theme } = useTheme();
-  void theme;
   return (
     <div className="min-h-dvh bg-background text-foreground">
       <AnimatePresence>{!introDone && <Intro onDone={() => setIntroDone(true)} />}</AnimatePresence>
