@@ -17,7 +17,7 @@ import matrix from "@/assets/shifan-matrix.png";
 import code1 from "@/assets/code1.jpg";
 import code2 from "@/assets/code2.jpg";
 import code3 from "@/assets/code3.jpg";
-import { FaReact } from "react-icons/fa";
+import reactLogo from "@/assets/react.svg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -78,7 +78,7 @@ function Intro({ onDone }: { onDone: () => void }) {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="font-mono-tight text-xs uppercase tracking-[0.4em] text-muted-foreground"
         >
-           Hey Everyone I Am From <span className="text-primary">/</span> Calicut, IN
+          Hey Everyone I Am From <span className="text-primary">/</span> Calicut, IN
         </motion.p>
 
         <div className="mt-6 flex justify-center overflow-hidden">
@@ -189,8 +189,8 @@ function Hero() {
 
           <p className="mt-8 max-w-xl text-base text-muted-foreground sm:text-lg">
             Mohammad Shifan NV — MERN stack developer, frontend engineer and visual content creator
-            .closing luxury property in the Hi-Lite builders, shipping React at night. I
-            bring the salesfloor instinct into product.
+            .closing luxury property in the Hi-Lite builders, shipping React at night. I bring the
+            salesfloor instinct into product.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -214,7 +214,7 @@ function Hero() {
           {[
             { k: "Stack", v: "MERN" },
             { k: "Based", v: "Calicut, IN" },
-            { k: "Languages", v: "EN · ML · HI · AR" },
+            { k: "Languages", v: "EN · ML · HI ·" },
             { k: "Also", v: "DaVinci · Capcut" },
           ].map((s, i) => (
             <motion.div
@@ -261,7 +261,9 @@ function Marquee() {
             className="font-display flex items-center gap-12 text-3xl font-medium sm:text-5xl"
           >
             {w}
-            <span className="text-primary">✦ </span>
+            <span className="text-primary">
+              <img src={reactLogo} alt="" className="h-8 w-8 sm:h-10 sm:w-10" />
+            </span>
           </span>
         ))}
       </div>
@@ -306,8 +308,7 @@ function About() {
                 ever done.
               </p>
               <p>
-                I edit my own video on DaVinci & Capcut, design in Figma, and ship the code myself.
-                One person, full pipeline.
+                I edit my own video && Client video on DaVinci & Capcut, design in Figma, and ship the code myself.
               </p>
             </div>
 
@@ -332,8 +333,8 @@ function About() {
               className="aspect-[3/4] overflow-hidden rounded-2xl border border-border"
             >
               <img
-                src={matrix}
-                alt="Mohammad Shifan — code portrait"
+                src={outdoor}
+                alt="Mohammad Shifan outdoor portrait"
                 className="h-full w-full object-cover"
               />
             </motion.div>
@@ -598,9 +599,9 @@ function Work() {
     {
       no: "02",
       title: "Edit Suite",
-      tag: "DaVinci · Capcut · Premiere",
+      tag: "DaVinci · Capcut · ",
       blurb:
-        "Property walkthrough videos and short-form reels for residential listings. Color science, sound design and motion graphics, one-person pipeline.",
+        "Property walkthrough videos and short-form reels for residential listings. Color science, sound design and motion graphics.",
       tint: "from-signal/30 to-primary/10",
     },
     {
@@ -613,11 +614,10 @@ function Work() {
     },
     {
       no: "04",
-      title: "Property Microsite",
-      tag: "React · Tailwind · Framer Motion",
+      title: "Mobile-First Salon Booking Platform (ongoing)",
+      tag: "Frontend: Next.js 14 (App Router) + TypeScript + Tailwind CSS. // Backend: Next.js API routes + PostgreSQL + Prisma ORM ",
       blurb:
-        "Single-property landing site with cinematic hero, floor-plan explorer and lead-capture form wired to the CRM.",
-      tint: "from-signal/20 to-signal/5",
+        "Single-A production-ready MVP for local barbers and salon owners to replace phone calls, WhatsApp, and manual scheduling with a seamless online booking experience.",
     },
   ];
 
@@ -712,7 +712,7 @@ function Skills() {
         "Presentation",
       ],
     },
-    { k: "Languages", v: ["Malayalam", "English", "Hindi", "Arabic"] },
+    { k: "Languages", v: ["Malayalam", "English", "Hindi"] },
   ];
   return (
     <section id="skills" className="border-t border-border bg-surface py-28">
@@ -791,7 +791,7 @@ function Contact() {
               <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground">
                 Phone
               </div>
-              <div className="font-display mt-2 text-lg">+91 95445 31014</div>
+              <div className="font-display mt-2 text-lg">+91 88485 45625</div>
             </div>
             <Phone className="h-5 w-5 text-primary transition-transform group-hover:-translate-y-0.5" />
           </a>
@@ -805,7 +805,7 @@ function Contact() {
               <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground">
                 GitHub
               </div>
-              <div className="font-display mt-2 text-lg">/Shifannv</div>
+              <div className="font-display mt-2 text-lg">Shifannv</div>
             </div>
             <Github className="h-5 w-5 text-primary transition-transform group-hover:-translate-y-0.5" />
           </a>
@@ -815,7 +815,7 @@ function Contact() {
             <MapPin className="h-3.5 w-3.5" /> Calicut, Kerala — India
           </span>
           <span className="font-mono-tight text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Mohammad Shifan NV. Built with React + Framer Motion.
+            © {new Date().getFullYear()} Mohammad Shifan NV.
           </span>
         </div>
       </div>
