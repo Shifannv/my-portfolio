@@ -78,10 +78,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Mohammad Shifan NV — Frontend Developer & Visual Creator" },
-      { name: "description", content: "Portfolio of Mohammad Shifan NV — MERN stack developer, frontend engineer and visual content creator based in Calicut, India." },
+      {
+        name: "description",
+        content:
+          "Portfolio of Mohammad Shifan NV — MERN stack developer, frontend engineer and visual content creator based in Calicut, India.",
+      },
       { name: "author", content: "Mohammad Shifan NV" },
       { property: "og:title", content: "Mohammad Shifan NV — Frontend Developer & Visual Creator" },
-      { property: "og:description", content: "MERN stack developer, frontend engineer and visual content creator." },
+      {
+        property: "og:description",
+        content: "MERN stack developer, frontend engineer and visual content creator.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

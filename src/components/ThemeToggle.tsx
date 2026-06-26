@@ -40,7 +40,11 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
           transition={{ duration: durationMs / 1000, ease: [0.2, 0.7, 0.2, 1] }}
           className="absolute inset-0 grid place-items-center"
         >
-          {isDark ? <Moon className="h-4 w-4" strokeWidth={2.2} /> : <Sun className="h-4 w-4" strokeWidth={2.2} />}
+          {isDark ? (
+            <Moon className="h-4 w-4" strokeWidth={2.2} />
+          ) : (
+            <Sun className="h-4 w-4" strokeWidth={2.2} />
+          )}
         </motion.span>
       </motion.span>
     </button>

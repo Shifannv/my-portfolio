@@ -8,16 +8,7 @@ import {
   AnimatePresence,
   useReducedMotion,
 } from "framer-motion";
-import {
-  ArrowUpRight,
-  Github,
-  Mail,
-  MapPin,
-  Phone,
-  Code2,
-  Camera,
-  Building2,
-} from "lucide-react";
+import { ArrowUpRight, Github, Mail, MapPin, Phone, Code2, Camera, Building2 } from "lucide-react";
 import { ThemeProvider, useTheme } from "@/lib/theme";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -37,7 +28,10 @@ export const Route = createFileRoute("/")({
           "Portfolio of Mohammad Shifan NV — MERN stack developer, frontend engineer and visual content creator from Calicut, India.",
       },
       { property: "og:title", content: "Mohammad Shifan NV — Portfolio" },
-      { property: "og:description", content: "MERN stack developer, frontend engineer & visual creator." },
+      {
+        property: "og:description",
+        content: "MERN stack developer, frontend engineer & visual creator.",
+      },
       { property: "og:image", content: outdoor },
     ],
   }),
@@ -84,7 +78,7 @@ function Intro({ onDone }: { onDone: () => void }) {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="font-mono-tight text-xs uppercase tracking-[0.4em] text-muted-foreground"
         >
-          Mohammad <span className="text-primary">/</span> Calicut, IN
+           Hey Everyone I Am From <span className="text-primary">/</span> Calicut, IN
         </motion.p>
 
         <div className="mt-6 flex justify-center overflow-hidden">
@@ -110,10 +104,10 @@ function Intro({ onDone }: { onDone: () => void }) {
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
-          className="font-mono-tight mt-3 text-xs uppercase tracking-[0.3em] text-muted-foreground"
+          transition={{ delay: 2, duration: 1 }}
+          className="font-mono-tight mt-3 text-xs uppercase tracking-[0.2em] text-muted-foreground"
         >
-          Frontend · MERN · Visual content
+          Frontend · Realtor · Visual content Creator
         </motion.p>
       </div>
     </motion.div>
@@ -194,9 +188,9 @@ function Hero() {
           </h1>
 
           <p className="mt-8 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Mohammad Shifan NV — MERN stack developer, frontend engineer and visual
-            content creator from Calicut. Two years closing luxury property in the day,
-            shipping React at night. I bring the salesfloor instinct into product.
+            Mohammad Shifan NV — MERN stack developer, frontend engineer and visual content creator
+            from Calicut. Two years closing luxury property in the day, shipping React at night. I
+            bring the salesfloor instinct into product.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -245,14 +239,27 @@ function Hero() {
 /* ------------------------- MARQUEE ------------------------- */
 function Marquee() {
   const items = [
-    "React","Node.js","MongoDB","Tailwind","Framer Motion","Redux",
-    "DaVinci Resolve","Capcut","Photoshop","Figma","Cloudinary","Clerk Auth",
+    "React",
+    "Node.js",
+    "MongoDB",
+    "Tailwind",
+    "Framer Motion",
+    "Redux",
+    "DaVinci Resolve",
+    "Capcut",
+    "Photoshop",
+    "Figma",
+    "Cloudinary",
+    "Clerk Auth",
   ];
   return (
     <div className="overflow-hidden border-y border-border bg-surface marquee-mask py-6">
       <div className="flex w-max animate-scroll-x gap-12 whitespace-nowrap">
         {[...items, ...items].map((w, i) => (
-          <span key={i} className="font-display flex items-center gap-12 text-3xl font-medium sm:text-5xl">
+          <span
+            key={i}
+            className="font-display flex items-center gap-12 text-3xl font-medium sm:text-5xl"
+          >
             {w}
             <span className="text-primary">✦</span>
           </span>
@@ -272,7 +279,9 @@ function About() {
   return (
     <section id="about" ref={ref} className="relative border-t border-border bg-background py-28">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
-        <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-muted-foreground">/01 — About</p>
+        <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-muted-foreground">
+          /01 — About
+        </p>
         <div className="mt-6 grid gap-16 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <h2 className="font-display text-4xl font-semibold leading-[1.05] sm:text-6xl">
@@ -285,20 +294,20 @@ function About() {
 
             <div className="mt-10 space-y-6 text-base leading-relaxed text-foreground/90 sm:text-lg">
               <p>
-                I&apos;m <strong>Mohammad Shifan NV</strong> — a BSc Computer Science graduate
-                who treats software like product, not just tickets. I work across the MERN
-                stack with a frontend bias, and I obsess over motion, typography and the
-                tiny details that make a UI feel alive.
+                I&apos;m <strong>Mohammad Shifan NV</strong> — a BSc Computer Science graduate who
+                treats software like product, not just tickets. I work across the MERN stack with a
+                frontend bias, and I obsess over motion, typography and the tiny details that make a
+                UI feel alive.
               </p>
               <p>
                 In parallel I&apos;ve spent the last year at Hi-LITE Builders selling luxury
-                residences in the 1.6Cr–2.35Cr range. That salesfloor — 50+ calls a day,
-                site walkthroughs, real objections from real buyers — is the best UX
-                research I&apos;ve ever done.
+                residences in the 1.6Cr–2.35Cr range. That salesfloor — 50+ calls a day, site
+                walkthroughs, real objections from real buyers — is the best UX research I&apos;ve
+                ever done.
               </p>
               <p>
-                I edit my own video on DaVinci & Capcut, design in Figma, and ship the
-                code myself. One person, full pipeline.
+                I edit my own video on DaVinci & Capcut, design in Figma, and ship the code myself.
+                One person, full pipeline.
               </p>
             </div>
 
@@ -318,8 +327,15 @@ function About() {
           </div>
 
           <div className="relative lg:col-span-5">
-            <motion.div style={{ y: y1 }} className="aspect-[3/4] overflow-hidden rounded-2xl border border-border">
-              <img src={matrix} alt="Mohammad Shifan — code portrait" className="h-full w-full object-cover" />
+            <motion.div
+              style={{ y: y1 }}
+              className="aspect-[3/4] overflow-hidden rounded-2xl border border-border"
+            >
+              <img
+                src={matrix}
+                alt="Mohammad Shifan — code portrait"
+                className="h-full w-full object-cover"
+              />
             </motion.div>
             <motion.div
               style={{ y: y2 }}
@@ -338,24 +354,54 @@ function About() {
 /* ------------------------- TIMELINE ------------------------- */
 function Timeline() {
   const items = [
-    { t: "Apr 2026 — Now", role: "MERN Stack Developer — Intern", org: "Mentrex",
-      notes: "Building production React + Node features end-to-end. Component systems, REST APIs, MongoDB schemas, code reviews — shipping in a real team since 7 April 2026." },
-    { t: "2025 — 2026", role: "Sales Officer / Realtor", org: "Hi-LITE Builders, Chemmad",
-      notes: "Closing luxury residences and commercial property, 1.6Cr–2.35Cr. 50+ calls a day, in-person site walkthroughs." },
-    { t: "2025", role: "Accountant & Operations", org: "Furniture Shop, Malappuram",
-      notes: "Billing, stock, supplier negotiation, store ops and social-media driven sales." },
-    { t: "2025", role: "Business Associate", org: "Alza International Inc, Trivandrum",
-      notes: "SOS International promotion, telecalling, lead handling." },
-    { t: "2024", role: "MERN Stack Developer", org: "Luminar Technolab, Kochi (Kakkanad)",
-      notes: "Full MERN training — frontend and backend production builds." },
-    { t: "2024", role: "BSc Computer Science", org: "Blossom Arts & Science College, Kondotty",
-      notes: "Graduated. Python add-on certificate from Bluegen Solutions." },
+    {
+      t: "Apr 2026 — Now",
+      role: "MERN Stack Developer — Intern",
+      org: "Mentrex",
+      notes:
+        "Building production React + Node features end-to-end. Component systems, REST APIs, MongoDB schemas, code reviews — shipping in a real team since 7 April 2026.",
+    },
+    {
+      t: "2025 — 2026",
+      role: "Sales Officer / Realtor",
+      org: "Hi-LITE Builders, Chemmad",
+      notes:
+        "Closing luxury residences and commercial property, 1.6Cr–2.35Cr. 50+ calls a day, in-person site walkthroughs.",
+    },
+    {
+      t: "2025",
+      role: "Accountant & Operations",
+      org: "Furniture Shop, Malappuram",
+      notes: "Billing, stock, supplier negotiation, store ops and social-media driven sales.",
+    },
+    {
+      t: "2025",
+      role: "Business Associate",
+      org: "Alza International Inc, Trivandrum",
+      notes: "SOS International promotion, telecalling, lead handling.",
+    },
+    {
+      t: "2024",
+      role: "MERN Stack Developer",
+      org: "Luminar Technolab, Kochi (Kakkanad)",
+      notes: "Full MERN training — frontend and backend production builds.",
+    },
+    {
+      t: "2024",
+      role: "BSc Computer Science",
+      org: "Blossom Arts & Science College, Kondotty",
+      notes: "Graduated. Python add-on certificate from Bluegen Solutions.",
+    },
   ];
   return (
     <section className="border-t border-border bg-surface py-28">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
-        <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-muted-foreground">/02 — Background</p>
-        <h2 className="font-display mt-3 text-4xl font-semibold leading-[1.05] sm:text-6xl">A non-linear résumé.</h2>
+        <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-muted-foreground">
+          /02 — Background
+        </p>
+        <h2 className="font-display mt-3 text-4xl font-semibold leading-[1.05] sm:text-6xl">
+          A non-linear résumé.
+        </h2>
         <ol className="mt-14 space-y-2">
           {items.map((it, i) => (
             <motion.li
@@ -366,7 +412,9 @@ function Timeline() {
               transition={{ duration: 0.6, delay: i * 0.05 }}
               className="group grid grid-cols-12 items-baseline gap-4 border-t border-border py-6 transition-colors hover:bg-background/40"
             >
-              <span className="font-mono-tight col-span-12 text-xs uppercase tracking-widest text-muted-foreground sm:col-span-2">{it.t}</span>
+              <span className="font-mono-tight col-span-12 text-xs uppercase tracking-widest text-muted-foreground sm:col-span-2">
+                {it.t}
+              </span>
               <div className="col-span-12 sm:col-span-4">
                 <div className="font-display text-xl font-medium">{it.role}</div>
                 <div className="text-sm text-muted-foreground">{it.org}</div>
@@ -386,24 +434,45 @@ function Story() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
 
   const panels = [
-    { img: code1, kicker: "01 — Source", title: "JSX, tokens, intent.",
+    {
+      img: code1,
+      kicker: "01 — Source",
+      title: "JSX, tokens, intent.",
       body: "React components, typed end-to-end. Semantic design tokens, motion as a first-class citizen, every line written with shipping in mind.",
-      alt: "Syntax-highlighted React code on a dark editor" },
-    { img: code2, kicker: "02 — Night build", title: "Ship after midnight.",
+      alt: "Syntax-highlighted React code on a dark editor",
+    },
+    {
+      img: code2,
+      kicker: "02 — Night build",
+      title: "Ship after midnight.",
       body: "Git log scrolling, terminal humming, city outside the window. Most of the production deploys happen when the world goes quiet.",
-      alt: "Dark terminal with city skyline at night" },
-    { img: code3, kicker: "03 — Data in motion", title: "Interfaces that breathe.",
+      alt: "Dark terminal with city skyline at night",
+    },
+    {
+      img: code3,
+      kicker: "03 — Data in motion",
+      title: "Interfaces that breathe.",
       body: "Flowing particle waves, real-time charts, scroll-driven storytelling. Motion is how I make a static screen feel alive.",
-      alt: "Abstract glowing data visualization" },
-    { img: matrix, kicker: "04 — Into the matrix", title: "Down to the bits.",
+      alt: "Abstract glowing data visualization",
+    },
+    {
+      img: matrix,
+      kicker: "04 — Into the matrix",
+      title: "Down to the bits.",
       body: "From JSX all the way down — binary, bytes, packets. I like knowing what the machine is actually doing underneath my UI.",
-      alt: "Portrait of Shifan with matrix-style green falling binary code overlay" },
+      alt: "Portrait of Shifan with matrix-style green falling binary code overlay",
+    },
   ];
 
   const n = panels.length;
 
   return (
-    <section id="story" ref={ref} className="relative border-t border-border bg-background" style={{ height: `${n * 100}vh` }}>
+    <section
+      id="story"
+      ref={ref}
+      className="relative border-t border-border bg-background"
+      style={{ height: `${n * 100}vh` }}
+    >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <div className="mx-auto grid w-full max-w-7xl gap-10 px-6 sm:px-10 lg:grid-cols-2 lg:gap-16">
           <div className="relative order-1 mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl border border-border bg-surface lg:order-none lg:max-w-none">
@@ -413,18 +482,31 @@ function Story() {
               const mid = (start + end) / 2;
               const clamp = (v: number) => Math.min(1, Math.max(0, v));
               // eslint-disable-next-line react-hooks/rules-of-hooks
-              const opacity = useTransform(scrollYProgress,
+              const opacity = useTransform(
+                scrollYProgress,
                 [clamp(start - 0.05), clamp(start + 0.02), clamp(end - 0.02), clamp(end + 0.05)],
-                [0, 1, 1, 0]);
+                [0, 1, 1, 0],
+              );
               // eslint-disable-next-line react-hooks/rules-of-hooks
-              const scale = useTransform(scrollYProgress, [clamp(start), clamp(mid), clamp(end)], [1.08, 1, 1.08]);
+              const scale = useTransform(
+                scrollYProgress,
+                [clamp(start), clamp(mid), clamp(end)],
+                [1.08, 1, 1.08],
+              );
               return (
-                <motion.img key={i} src={p.img} alt={p.alt} style={{ opacity, scale }}
-                  className="absolute inset-0 h-full w-full object-cover" />
+                <motion.img
+                  key={i}
+                  src={p.img}
+                  alt={p.alt}
+                  style={{ opacity, scale }}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
               );
             })}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between px-4 py-3 text-[10px]">
-              <span className="font-mono-tight rounded-full bg-background/80 px-2 py-1 uppercase tracking-widest text-foreground backdrop-blur">scroll to advance</span>
+              <span className="font-mono-tight rounded-full bg-background/80 px-2 py-1 uppercase tracking-widest text-foreground backdrop-blur">
+                scroll to advance
+              </span>
               <span className="font-mono-tight rounded-full bg-background/80 px-2 py-1 tabular-nums text-foreground backdrop-blur">
                 <StoryIndex progress={scrollYProgress} total={n} />
               </span>
@@ -438,23 +520,39 @@ function Story() {
                 const end = (i + 1) / n;
                 const clamp = (v: number) => Math.min(1, Math.max(0, v));
                 // eslint-disable-next-line react-hooks/rules-of-hooks
-                const opacity = useTransform(scrollYProgress,
+                const opacity = useTransform(
+                  scrollYProgress,
                   [clamp(start - 0.03), clamp(start + 0.04), clamp(end - 0.04), clamp(end + 0.03)],
-                  [0, 1, 1, 0]);
+                  [0, 1, 1, 0],
+                );
                 // eslint-disable-next-line react-hooks/rules-of-hooks
                 const y = useTransform(scrollYProgress, [clamp(start), clamp(end)], [30, -30]);
                 return (
-                  <motion.div key={i} style={{ opacity, y }} className="absolute inset-0 flex flex-col justify-center">
-                    <p className="font-mono-tight text-xs uppercase tracking-[0.3em] text-primary">{p.kicker}</p>
-                    <h3 className="font-display mt-4 text-4xl font-semibold leading-[1.05] sm:text-5xl">{p.title}</h3>
-                    <p className="mt-5 max-w-md text-base text-muted-foreground sm:text-lg">{p.body}</p>
+                  <motion.div
+                    key={i}
+                    style={{ opacity, y }}
+                    className="absolute inset-0 flex flex-col justify-center"
+                  >
+                    <p className="font-mono-tight text-xs uppercase tracking-[0.3em] text-primary">
+                      {p.kicker}
+                    </p>
+                    <h3 className="font-display mt-4 text-4xl font-semibold leading-[1.05] sm:text-5xl">
+                      {p.title}
+                    </h3>
+                    <p className="mt-5 max-w-md text-base text-muted-foreground sm:text-lg">
+                      {p.body}
+                    </p>
                   </motion.div>
                 );
               })}
               <div className="invisible">
                 <p className="font-mono-tight text-xs uppercase tracking-[0.3em]">x</p>
-                <h3 className="font-display mt-4 text-4xl font-semibold leading-[1.05] sm:text-5xl">placeholder title here</h3>
-                <p className="mt-5 max-w-md text-base sm:text-lg">placeholder body line one placeholder body line two placeholder body line three.</p>
+                <h3 className="font-display mt-4 text-4xl font-semibold leading-[1.05] sm:text-5xl">
+                  placeholder title here
+                </h3>
+                <p className="mt-5 max-w-md text-base sm:text-lg">
+                  placeholder body line one placeholder body line two placeholder body line three.
+                </p>
               </div>
             </div>
           </div>
@@ -464,7 +562,13 @@ function Story() {
   );
 }
 
-function StoryIndex({ progress, total }: { progress: ReturnType<typeof useScroll>["scrollYProgress"]; total: number }) {
+function StoryIndex({
+  progress,
+  total,
+}: {
+  progress: ReturnType<typeof useScroll>["scrollYProgress"];
+  total: number;
+}) {
   const [i, setI] = useState(1);
   useEffect(() => {
     const unsub = progress.on("change", (v) => {
@@ -473,24 +577,48 @@ function StoryIndex({ progress, total }: { progress: ReturnType<typeof useScroll
     });
     return () => unsub();
   }, [progress, total]);
-  return <span>{String(i).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>;
+  return (
+    <span>
+      {String(i).padStart(2, "0")} / {String(total).padStart(2, "0")}
+    </span>
+  );
 }
 
 /* ------------------------- WORK ------------------------- */
 function Work() {
   const projects = [
-    { no: "01", title: "Realtor CRM", tag: "React · Node · MongoDB",
-      blurb: "Internal CRM I prototyped from my own salesfloor: lead intake, follow-up scheduling, site-visit tracking and deal pipeline. Built around how I actually close.",
-      tint: "from-primary/30 to-signal/10" },
-    { no: "02", title: "Edit Suite", tag: "DaVinci · Capcut · Premiere",
-      blurb: "Property walkthrough videos and short-form reels for residential listings. Color science, sound design and motion graphics, one-person pipeline.",
-      tint: "from-signal/30 to-primary/10" },
-    { no: "03", title: "Auth-Ready React Kit", tag: "React · Redux · Clerk · Cloudinary",
-      blurb: "Starter scaffold for client projects: routing, protected routes, image upload pipeline, theme system and a Framer Motion preset library.",
-      tint: "from-primary/20 to-primary/5" },
-    { no: "04", title: "Property Microsite", tag: "React · Tailwind · Framer Motion",
-      blurb: "Single-property landing site with cinematic hero, floor-plan explorer and lead-capture form wired to the CRM.",
-      tint: "from-signal/20 to-signal/5" },
+    {
+      no: "01",
+      title: "Realtor CRM",
+      tag: "React · Node · MongoDB",
+      blurb:
+        "Internal CRM I prototyped from my own salesfloor: lead intake, follow-up scheduling, site-visit tracking and deal pipeline. Built around how I actually close.",
+      tint: "from-primary/30 to-signal/10",
+    },
+    {
+      no: "02",
+      title: "Edit Suite",
+      tag: "DaVinci · Capcut · Premiere",
+      blurb:
+        "Property walkthrough videos and short-form reels for residential listings. Color science, sound design and motion graphics, one-person pipeline.",
+      tint: "from-signal/30 to-primary/10",
+    },
+    {
+      no: "03",
+      title: "Auth-Ready React Kit",
+      tag: "React · Redux · Clerk · Cloudinary",
+      blurb:
+        "Starter scaffold for client projects: routing, protected routes, image upload pipeline, theme system and a Framer Motion preset library.",
+      tint: "from-primary/20 to-primary/5",
+    },
+    {
+      no: "04",
+      title: "Property Microsite",
+      tag: "React · Tailwind · Framer Motion",
+      blurb:
+        "Single-property landing site with cinematic hero, floor-plan explorer and lead-capture form wired to the CRM.",
+      tint: "from-signal/20 to-signal/5",
+    },
   ];
 
   return (
@@ -498,32 +626,51 @@ function Work() {
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <div className="flex items-end justify-between">
           <div>
-            <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-muted-foreground">/03 — Selected work</p>
+            <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-muted-foreground">
+              /03 — Selected work
+            </p>
             <h2 className="font-display mt-3 text-4xl font-semibold leading-[1.05] sm:text-6xl">
-              Things I shipped,<br />
+              Things I shipped,
+              <br />
               <span className="text-primary">things I&apos;m shipping.</span>
             </h2>
           </div>
-          <a href="https://github.com/Shifannv" target="_blank" rel="noreferrer"
-            className="hidden items-center gap-2 text-sm text-muted-foreground hover:text-foreground sm:inline-flex">
+          <a
+            href="https://github.com/Shifannv"
+            target="_blank"
+            rel="noreferrer"
+            className="hidden items-center gap-2 text-sm text-muted-foreground hover:text-foreground sm:inline-flex"
+          >
             <Github className="h-4 w-4" /> github.com/Shifannv
           </a>
         </div>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           {projects.map((p, i) => (
-            <motion.article key={p.no}
-              initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-8">
-              <div className={`pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-gradient-to-br ${p.tint} opacity-70 blur-3xl transition-opacity group-hover:opacity-100`} />
+            <motion.article
+              key={p.no}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: i * 0.08 }}
+              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-8"
+            >
+              <div
+                className={`pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-gradient-to-br ${p.tint} opacity-70 blur-3xl transition-opacity group-hover:opacity-100`}
+              />
               <div className="relative flex items-start justify-between">
                 <span className="font-mono-tight text-xs text-muted-foreground">{p.no}</span>
                 <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-all group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-primary" />
               </div>
-              <h3 className="font-display relative mt-12 text-3xl font-semibold sm:text-4xl">{p.title}</h3>
-              <p className="font-mono-tight relative mt-2 text-xs uppercase tracking-widest text-muted-foreground">{p.tag}</p>
-              <p className="relative mt-6 max-w-md text-sm text-foreground/85 sm:text-base">{p.blurb}</p>
+              <h3 className="font-display relative mt-12 text-3xl font-semibold sm:text-4xl">
+                {p.title}
+              </h3>
+              <p className="font-mono-tight relative mt-2 text-xs uppercase tracking-widest text-muted-foreground">
+                {p.tag}
+              </p>
+              <p className="relative mt-6 max-w-md text-sm text-foreground/85 sm:text-base">
+                {p.blurb}
+              </p>
             </motion.article>
           ))}
         </div>
@@ -535,31 +682,71 @@ function Work() {
 /* ------------------------- SKILLS ------------------------- */
 function Skills() {
   const groups = [
-    { k: "Frontend", v: ["HTML5","CSS","JavaScript","React.js","Redux","Tailwind CSS","Bootstrap","Framer Motion"] },
-    { k: "Backend", v: ["Node.js","Express","MongoDB","Clerk Auth","Cloudinary","REST APIs"] },
-    { k: "Tools", v: ["VS Code","Figma","Photoshop","Lightroom","Git / GitHub","Excel"] },
-    { k: "Visual", v: ["DaVinci Resolve","Capcut Pro","Color grading","Graphic design","Wall sketch"] },
-    { k: "Business", v: ["High-ticket sales","Negotiation","Billing","Stock mgmt","Telecalling","Presentation"] },
-    { k: "Languages", v: ["Malayalam","English","Hindi","Arabic"] },
+    {
+      k: "Frontend",
+      v: [
+        "HTML5",
+        "CSS",
+        "JavaScript",
+        "React.js",
+        "Redux",
+        "Tailwind CSS",
+        "Bootstrap",
+        "Framer Motion",
+      ],
+    },
+    { k: "Backend", v: ["Node.js", "Express", "MongoDB", "Clerk Auth", "Cloudinary", "REST APIs"] },
+    { k: "Tools", v: ["VS Code", "Figma", "Photoshop", "Lightroom", "Git / GitHub", "Excel"] },
+    {
+      k: "Visual",
+      v: ["DaVinci Resolve", "Capcut Pro", "Color grading", "Graphic design", "Wall sketch"],
+    },
+    {
+      k: "Business",
+      v: [
+        "High-ticket sales",
+        "Negotiation",
+        "Billing",
+        "Stock mgmt",
+        "Telecalling",
+        "Presentation",
+      ],
+    },
+    { k: "Languages", v: ["Malayalam", "English", "Hindi", "Arabic"] },
   ];
   return (
     <section id="skills" className="border-t border-border bg-surface py-28">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
-        <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-muted-foreground">/05 — Stack & skills</p>
-        <h2 className="font-display mt-3 text-4xl font-semibold leading-[1.05] sm:text-6xl">The toolbelt.</h2>
+        <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-muted-foreground">
+          /05 — Stack & skills
+        </p>
+        <h2 className="font-display mt-3 text-4xl font-semibold leading-[1.05] sm:text-6xl">
+          The toolbelt.
+        </h2>
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {groups.map((g, i) => (
-            <motion.div key={g.k}
-              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="rounded-2xl border border-border bg-card p-6">
+            <motion.div
+              key={g.k}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              className="rounded-2xl border border-border bg-card p-6"
+            >
               <div className="flex items-baseline justify-between">
                 <h3 className="font-display text-xl font-semibold">{g.k}</h3>
-                <span className="font-mono-tight text-xs text-muted-foreground">{String(g.v.length).padStart(2, "0")}</span>
+                <span className="font-mono-tight text-xs text-muted-foreground">
+                  {String(g.v.length).padStart(2, "0")}
+                </span>
               </div>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {g.v.map((s) => (
-                  <li key={s} className="rounded-full border border-border bg-background px-3 py-1 text-sm">{s}</li>
+                  <li
+                    key={s}
+                    className="rounded-full border border-border bg-background px-3 py-1 text-sm"
+                  >
+                    {s}
+                  </li>
                 ))}
               </ul>
             </motion.div>
@@ -575,29 +762,49 @@ function Contact() {
   return (
     <section id="contact" className="border-t border-border bg-background py-28">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
-        <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-muted-foreground">/06 — Contact</p>
+        <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-muted-foreground">
+          /06 — Contact
+        </p>
         <h2 className="font-display mt-3 text-5xl font-semibold leading-[1.02] sm:text-[8rem] sm:tracking-tighter">
-          Let&apos;s build<br />
+          Let&apos;s build
+          <br />
           <span className="italic text-primary">something real.</span>
         </h2>
         <div className="mt-14 grid gap-4 sm:grid-cols-3">
-          <a href="mailto:m.shifan.nv@gmail.com" className="group flex items-center justify-between rounded-2xl border border-border bg-card p-6 hover:bg-surface">
+          <a
+            href="mailto:m.shifan.nv@gmail.com"
+            className="group flex items-center justify-between rounded-2xl border border-border bg-card p-6 hover:bg-surface"
+          >
             <div>
-              <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground">Email</div>
+              <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground">
+                Email
+              </div>
               <div className="font-display mt-2 text-lg">m.shifan.nv@gmail.com</div>
             </div>
             <Mail className="h-5 w-5 text-primary transition-transform group-hover:-translate-y-0.5" />
           </a>
-          <a href="tel:+919544531014" className="group flex items-center justify-between rounded-2xl border border-border bg-card p-6 hover:bg-surface">
+          <a
+            href="tel:+919544531014"
+            className="group flex items-center justify-between rounded-2xl border border-border bg-card p-6 hover:bg-surface"
+          >
             <div>
-              <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground">Phone</div>
+              <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground">
+                Phone
+              </div>
               <div className="font-display mt-2 text-lg">+91 95445 31014</div>
             </div>
             <Phone className="h-5 w-5 text-primary transition-transform group-hover:-translate-y-0.5" />
           </a>
-          <a href="https://github.com/Shifannv" target="_blank" rel="noreferrer" className="group flex items-center justify-between rounded-2xl border border-border bg-card p-6 hover:bg-surface">
+          <a
+            href="https://github.com/Shifannv"
+            target="_blank"
+            rel="noreferrer"
+            className="group flex items-center justify-between rounded-2xl border border-border bg-card p-6 hover:bg-surface"
+          >
             <div>
-              <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground">GitHub</div>
+              <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground">
+                GitHub
+              </div>
               <div className="font-display mt-2 text-lg">/Shifannv</div>
             </div>
             <Github className="h-5 w-5 text-primary transition-transform group-hover:-translate-y-0.5" />
@@ -620,7 +827,12 @@ function Contact() {
 function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.2 });
-  return <motion.div style={{ scaleX }} className="fixed inset-x-0 top-0 z-50 h-[2px] origin-left bg-primary" />;
+  return (
+    <motion.div
+      style={{ scaleX }}
+      className="fixed inset-x-0 top-0 z-50 h-[2px] origin-left bg-primary"
+    />
+  );
 }
 
 function Page() {
