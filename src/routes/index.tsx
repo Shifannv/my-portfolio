@@ -17,7 +17,7 @@ import matrix from "@/assets/shifan-matrix.png";
 import code1 from "@/assets/code1.jpg";
 import code2 from "@/assets/code2.jpg";
 import code3 from "@/assets/code3.jpg";
-
+import { FaReact } from "react-icons/fa";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -97,15 +97,15 @@ function Intro({ onDone }: { onDone: () => void }) {
 
         <motion.div
           initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 1.2, duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
+          animate={{ scaleX: 2 }}
+          transition={{ delay: 1.5, duration: 0.9, ease: [0.65, 0, 0.35, 1] }}
           className="mx-auto mt-4 h-px w-48 origin-left bg-primary"
         />
         <motion.p
           initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 2, y: 0 }}
           transition={{ delay: 2, duration: 1 }}
-          className="font-mono-tight mt-3 text-xs uppercase tracking-[0.2em] text-muted-foreground"
+          className="font-mono-tight mt-3 text-xs uppercase tracking-[0.3em] text-muted-foreground"
         >
           Frontend · Realtor · Visual content Creator
         </motion.p>
@@ -189,7 +189,7 @@ function Hero() {
 
           <p className="mt-8 max-w-xl text-base text-muted-foreground sm:text-lg">
             Mohammad Shifan NV — MERN stack developer, frontend engineer and visual content creator
-            from Calicut. Two years closing luxury property in the day, shipping React at night. I
+            .closing luxury property in the Hi-Lite builders, shipping React at night. I
             bring the salesfloor instinct into product.
           </p>
 
@@ -261,7 +261,7 @@ function Marquee() {
             className="font-display flex items-center gap-12 text-3xl font-medium sm:text-5xl"
           >
             {w}
-            <span className="text-primary">✦</span>
+            <span className="text-primary">✦ </span>
           </span>
         ))}
       </div>
@@ -288,7 +288,7 @@ function About() {
               Multidisciplinary by design.
               <br />
               <span className="text-muted-foreground">
-                Code in the morning, closings in the afternoon, color-grading at night.
+                Coding in the day, Hit gym on the Evening, color-grading at night.
               </span>
             </h2>
 
