@@ -21,11 +21,11 @@ import {
 import { ThemeProvider, useTheme } from "@/lib/theme";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
-import outdoor from "@/assets/shifan-outdoor.jpeg.asset.json";
-import matrix from "@/assets/shifan-matrix.png.asset.json";
-import code1 from "@/assets/code1.jpg.asset.json";
-import code2 from "@/assets/code2.jpg.asset.json";
-import code3 from "@/assets/code3.jpg.asset.json";
+import outdoor from "@/assets/shifan-outdoor.jpeg";
+import matrix from "@/assets/shifan-matrix.png";
+import code1 from "@/assets/code1.jpg";
+import code2 from "@/assets/code2.jpg";
+import code3 from "@/assets/code3.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:title", content: "Mohammad Shifan NV — Portfolio" },
       { property: "og:description", content: "MERN stack developer, frontend engineer & visual creator." },
-      { property: "og:image", content: outdoor.url },
+      { property: "og:image", content: outdoor },
     ],
   }),
   component: () => (
@@ -167,7 +167,7 @@ function Hero() {
     <section id="top" ref={ref} className="relative min-h-[100dvh] overflow-hidden grain">
       <motion.div style={{ y, scale, filter }} className="absolute inset-0 -z-10">
         <img
-          src={outdoor.url}
+          src={outdoor}
           alt="Mohammad Shifan NV — portrait"
           className="h-full w-full object-cover object-[50%_15%] opacity-70"
         />
@@ -319,7 +319,7 @@ function About() {
 
           <div className="relative lg:col-span-5">
             <motion.div style={{ y: y1 }} className="aspect-[3/4] overflow-hidden rounded-2xl border border-border">
-              <img src={matrix.url} alt="Mohammad Shifan — code portrait" className="h-full w-full object-cover" />
+              <img src={matrix} alt="Mohammad Shifan — code portrait" className="h-full w-full object-cover" />
             </motion.div>
             <motion.div
               style={{ y: y2 }}
@@ -386,16 +386,16 @@ function Story() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
 
   const panels = [
-    { img: code1.url, kicker: "01 — Source", title: "JSX, tokens, intent.",
+    { img: code1, kicker: "01 — Source", title: "JSX, tokens, intent.",
       body: "React components, typed end-to-end. Semantic design tokens, motion as a first-class citizen, every line written with shipping in mind.",
       alt: "Syntax-highlighted React code on a dark editor" },
-    { img: code2.url, kicker: "02 — Night build", title: "Ship after midnight.",
+    { img: code2, kicker: "02 — Night build", title: "Ship after midnight.",
       body: "Git log scrolling, terminal humming, city outside the window. Most of the production deploys happen when the world goes quiet.",
       alt: "Dark terminal with city skyline at night" },
-    { img: code3.url, kicker: "03 — Data in motion", title: "Interfaces that breathe.",
+    { img: code3, kicker: "03 — Data in motion", title: "Interfaces that breathe.",
       body: "Flowing particle waves, real-time charts, scroll-driven storytelling. Motion is how I make a static screen feel alive.",
       alt: "Abstract glowing data visualization" },
-    { img: matrix.url, kicker: "04 — Into the matrix", title: "Down to the bits.",
+    { img: matrix, kicker: "04 — Into the matrix", title: "Down to the bits.",
       body: "From JSX all the way down — binary, bytes, packets. I like knowing what the machine is actually doing underneath my UI.",
       alt: "Portrait of Shifan with matrix-style green falling binary code overlay" },
   ];
